@@ -11,7 +11,7 @@ az ad sp create-for-rbac \
   --scopes /subscriptions/{subscription-id}/resourceGroups/Bicep \
   --sdk-auth
 ```
-Result:
+Output of the command:
 ```
 {
     "clientId": "<GUID>",
@@ -24,9 +24,7 @@ Result:
 
 ## Creating a GitHub secret
 
-In your GitHub repository, navigate to **Settings** > **Secrets** > **Actions**. Create a new secret called `AZURE_CREDENTIALS` and paste the entire **JSON** object you got from the previous step
-<br/>
-<br/>
+In your GitHub repository, navigate to **Settings** > **Secrets** > **Actions**. Create a new secret called `AZURE_CREDENTIALS` and paste the entire **JSON** object you got from the previous step. <br/>
 Create another secret for the name of the **resource group** with a name such as `AZURE_RG` and one for the subscription
 
 ## Creating a GitHub action
@@ -57,3 +55,6 @@ jobs:
                   parameters: storagePrefix=stg
                   failOnStdErr: false
 ```
+<hr/>
+
+[To home page](../README.md)
