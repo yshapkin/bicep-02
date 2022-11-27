@@ -32,9 +32,11 @@ az bicep build -f ./main.bicep
 ```
 groupName='name'
 location='location'
+
 az group create \
   --name $groupName 
   --location $location
+
 az deployment group create \
   --resource-group $groupName \
   --template-file main.bicep \
