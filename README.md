@@ -13,10 +13,6 @@ az login
 ```
 
 ```
-az account set --subscription "Concierge Subscription"
-```
-
-```
 az account list \
    --refresh \
    --query "[?contains(name, 'Concierge Subscription')].id" \
@@ -27,8 +23,18 @@ az account list \
 az account set --subscription {your subscription ID}
 ```
 
+### Compile the file
+```
+az bicep build -f ./main.bicep
+```
+
 ### Deploy the template to Azure
 ```
+groupName='name'
+location='location'
+az group create --name $groupName --location $location
+az deployment group create --resource-group $groupName --template-file main.bicep --parameters storageName=uniqueName
+
 az deployment group create --template-file main.bicep
 
 az deployment group create \
