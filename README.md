@@ -31,3 +31,17 @@ az account set --subscription {your subscription ID}
 ```
 az deployment group create --template-file main.bicep
 ```
+
+### The what-if command with the modified template
+```
+az deployment group what-if \
+  --template-file main.bicep
+```
+
+### Deploy by using complete mode and the confirmation option
+```
+az deployment group create \
+  --mode Complete \
+  --confirm-with-what-if \
+  --template-file main.bicep
+```
